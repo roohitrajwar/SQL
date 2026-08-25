@@ -1,0 +1,74 @@
+Use learner;
+Create table employee(Emp_id int NOt null  ,
+Firste_name varchar(50), 
+Department varchar(50),
+ Salary int Not null,
+ HireDate Date
+ );
+Insert into employee values(101 ,"AliceSmith","HR",55000,"2020-03-11"),
+ (102,"BobJohnson","IT",85000,"2019-11-01"),
+ (103,"CharlieBrown","finance",75000,"2021-06-20"),
+ (104,"Brown","finance",79000,"2019-06-28"),(105,"Arown","HR",80000,"2021-08-20"),
+ (106,"DavidMiller","IT", 90000,"2018-05-12");
+
+alter table employee
+add holiday varchar(50);
+select department
+from employee
+where department <>'HR';
+
+select Salary
+from employeeFROM employee 
+WHERE Salary < 60000 OR Salary > 75000;
+
+
+/*Display employees hired before 2020.*/
+SELECT * 
+FROM employee
+WHERE hiredate < '2020-01-01';
+
+/*Display the top 3 highest-paid employees IN ASCENDING .*/
+select max(Salary)
+from employee
+group by First_name
+having max(Salary)
+Order by max(salary)asc
+limit 3;
+
+Find employees whose department is either HR or Finance
+SELECT *
+FROM employee
+WHERE department = 'HR' OR department = 'Finance';
+
+Find the average salary of each department.
+
+SELECT department, AVG(salary) 
+FROM employee
+GROUP BY department
+ORDER BY AVG(salary) DESC;
+
+<label>Games (Select multiple):</label><br> 
+<input type="checkbox" id="football" name="games" value="Football"> 
+<label for="football">Football</label><br>
+/*Display employees whose salary is greater than the average salary*/
+Select *
+from employee
+where salary>(select avg(salary) from employee);
+
+/*Find employees who earn more than every employee in the HR department*/
+Select max(salary)
+from employee
+where department ='HR';
+
+/*departments where the average salary is greater than 70,000.*/
+
+SELECT Department, AVG(Salary) 
+FROM employee
+GROUP BY Department
+HAVING AVG(Salary) > 70000
+ORDER BY Avg_Salary DESC;
+
+
+
+
+
